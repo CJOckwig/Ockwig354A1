@@ -81,14 +81,22 @@ namespace SymTabOckwig
         *** IN/OUT ARGS : none                                            ***
         *** RETURN : none                                                 ***
         ********************************************************************/
-        public static void LeftTraverse(Node? root)
+        public static int LeftTraverse(Node? root, int n=1)
         {
             if(root != null)
             {
-                LeftTraverse(root.Left);
+                n = LeftTraverse(root.Left, n);
                 root.ToString();
-                LeftTraverse(root.Right);
+                if (n == 20)
+                {
+                    Console.ReadKey();
+                    n = 0;
+                }
+                n++;
+                n = LeftTraverse(root.Right, n);
+               
             }
+            return n;
         }
         /********************************************************************
         *** BST.Destroy ***

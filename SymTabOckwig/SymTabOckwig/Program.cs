@@ -80,14 +80,13 @@ namespace SymTabOckwig
                 Validation.ShowError(errorCode,symbol, CurrentLine);
            
             }
-            Console.WriteLine("\n\nSymbol    RFlag   MFlag   IFlag   Value");
             Console.WriteLine("Enter the name of the file you wish to read the symbols from: ");
             String newFile = Console.ReadLine();
             try
             {
                 LineValues = System.IO.File.ReadAllLines("..\\..\\..\\" + newFile);
-
-                foreach(String symbol in LineValues)
+                Console.WriteLine("\n\nSymbol    RFlag   MFlag   IFlag   Value");
+                foreach (String symbol in LineValues)
                 {
 
                     String CurrentSymbol = symbol.Trim(' ');
@@ -115,6 +114,11 @@ namespace SymTabOckwig
                 Console.WriteLine("..\\..\\..\\" + newFile);
                 Console.WriteLine(newFile + " was not found in the top level of the project folder. Please move the file there.");
             }
+            Console.WriteLine("Press any key to traverse symbol table");
+            Console.ReadKey();
+            Console.WriteLine("\n\nSymbol    RFlag   MFlag   IFlag   Value");
+            BST.LeftTraverse(SymbolTable.Root);
+
         }
     }
 }
