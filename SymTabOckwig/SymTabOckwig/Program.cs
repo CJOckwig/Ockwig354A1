@@ -27,8 +27,17 @@ namespace SymTabOckwig
         //    .\SymTabOckwig\SymTabOckwig\bin\Debug\net6.0\Symbols.dat
         static void Main(string[] args)
         {
+            Console.WriteLine("\n\n");
+            Console.WriteLine("*******************************");
+            Console.WriteLine("*** Caleb Ockwig CSC 354 A1 ***");
+            Console.WriteLine("*** Symbol Table BST        ***");
+            Console.WriteLine("*** Date: 9/14/2022         ***");
+            Console.WriteLine("*******************************");
+
+
+
             BST SymbolTable = new BST();
-            string relativePath = "..\\..\\..\\Symbols.dat";//this will mean symbols.dat is read from the solution folder
+            string relativePath = "Symbols.dat";//this will mean symbols.dat is read from the solution folder
             string[] LineValues = { };
             try {
                 LineValues = System.IO.File.ReadAllLines(relativePath);
@@ -80,11 +89,12 @@ namespace SymTabOckwig
                 Validation.ShowError(errorCode,symbol, CurrentLine);
            
             }
+            
             Console.WriteLine("Enter the name of the file you wish to read the symbols from: ");
             String newFile = Console.ReadLine();
             try
             {
-                LineValues = System.IO.File.ReadAllLines("..\\..\\..\\" + newFile);
+                LineValues = System.IO.File.ReadAllLines(newFile);
                 Console.WriteLine("\n\nSymbol    RFlag   MFlag   IFlag   Value");
                 foreach (String symbol in LineValues)
                 {
@@ -111,7 +121,7 @@ namespace SymTabOckwig
             }
             catch (Exception e)
             {
-                Console.WriteLine("..\\..\\..\\" + newFile);
+                Console.WriteLine(newFile);
                 Console.WriteLine(newFile + " was not found in the top level of the project folder. Please move the file there.");
             }
             Console.WriteLine("Press any key to traverse symbol table");

@@ -14,12 +14,12 @@ namespace SymTabOckwig
         }
         public Node Root { get; set; }
         /********************************************************************
-        *** FUNCTION BST.AddNode() ***
+        *** FUNCTION BST.AddNode()                                        ***
         *********************************************************************
-        *** DESCRIPTION : Adds a node with the given 
-        *                 information to the defined BST.
-        *                 if no root exists, that node will 
-        *                 be the new node   
+        *** DESCRIPTION : Adds a node with the given                      ***
+        *                 information to the defined BST.                 ***
+        *                 if no root exists, that node will               ***
+        *                 be the new node                                 ***
         *                 if a node with that symbol already exists,      ***
         *                 it will set the mFlag  to true                  *** 
         *                 and exit returning false                        ***
@@ -139,7 +139,7 @@ namespace SymTabOckwig
                     return;
                 }
             }
-            Console.WriteLine("The symbol " + symbol + " was not found in the symbol table");
+            Console.WriteLine("Error - The symbol " + symbol + " was not found in the symbol table");
 
         }
 

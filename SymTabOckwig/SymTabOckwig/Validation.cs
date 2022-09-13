@@ -25,13 +25,12 @@ namespace SymTabOckwig
         public static byte CheckSymbol(string symbol)
         {
             byte errorCode = 0;
-            //https://www.techiedelight.com/check-string-consists-alphanumeric-characters-csharp/#:~:text=Using%20Regular%20Expression,%2C%20use%20%2B%20instead%20of%20*%20.
             if(symbol.Length > 12)
             {
                 errorCode += 1;
             }
             
-            if (!Regex.IsMatch(symbol, "^[a-zA-Z0-9]*$"))
+            if (!Regex.IsMatch(symbol, "^[a-zA-Z0-9]+$"))
             {
                 errorCode += 2;
             }
@@ -94,7 +93,6 @@ namespace SymTabOckwig
         ********************************************************************/
         public static bool CheckValue(string value)
         {
-            //https://stackoverflow.com/questions/894263/identify-if-a-string-is-a-number
             if (int.TryParse(value, out _))
             {
                 return true;
@@ -131,22 +129,23 @@ namespace SymTabOckwig
         {
             //ABCDEFgh: true 100
             line = line.Trim(' ');
-            string[] result = line.Split(' ');
+            line = line.Replace(':', ' ');
+            string[] result = line.Split(' ',StringSplitOptions.RemoveEmptyEntries );
+
             // result[0] = Symbol
             // result[1] = rFlag
             // result[2] = value
-            result[0] = result[0].TrimEnd(':');
             return result;
         }
         /*
- * error lookup
- * 1 = symbol > 12
- * 2 = not alphanumeric
- * 4 = first symbol not a letter
- * 8 = not valid rFlag
- * 16 = value not valid
- * 32 = multiple (set mFlag to true)
- */
+        * error lookup
+        * 1 = symbol > 12
+        * 2 = not alphanumeric
+        * 4 = first symbol not a letter
+        * 8 = not valid rFlag
+        * 16 = value not valid
+        * 32 = multiple (set mFlag to true)
+        */
         /********************************************************************
         *** FUNCTION ShowError ***
         *********************************************************************
