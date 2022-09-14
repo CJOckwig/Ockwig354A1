@@ -86,7 +86,7 @@ namespace SymTabOckwig
             if(root != null)
             {
                 n = LeftTraverse(root.Left, n);
-                root.ToString();
+                root.PrintNode();
                 if (n == 20)
                 {
                     Console.ReadKey();
@@ -135,7 +135,7 @@ namespace SymTabOckwig
                 }
                 else
                 {
-                    TargetNode.ToString();    
+                    TargetNode.PrintNode();    
                     return;
                 }
             }

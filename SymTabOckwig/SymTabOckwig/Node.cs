@@ -26,7 +26,7 @@ namespace SymTabOckwig
         public bool RFlag { get; set; } 
         public bool IFlag { get; set; }
         public bool MFlag { get; set; }
-        public void ToString()
+        public void PrintNode()
         {
             string s = "", buffer = "", rBuffer = "   ", mBuffer = "   ", iBuffer = "   ";
             int bufferlength = 10 - Symbol.Length;
