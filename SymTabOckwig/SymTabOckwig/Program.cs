@@ -37,7 +37,7 @@ namespace SymTabOckwig
 
 
             BST SymbolTable = new BST();
-            string relativePath = @"SymTabOckwig\SYMBOLS.DAT";//this will mean symbols.dat is read from the solution folder
+            string relativePath = @"SymTabOckwig/SYMBOLS.DAT";//this will mean symbols.dat is read from the solution folder
             string[] LineValues = { };
             try {
                 LineValues = System.IO.File.ReadAllLines(relativePath);
@@ -93,7 +93,7 @@ namespace SymTabOckwig
             
             Console.WriteLine("Enter the name of the file you wish to read the symbols from: ");
             String newFile = Console.ReadLine();
-            String relativePath2 = @"SymTabOckwig\"+newFile;
+            String relativePath2 = @"SymTabOckwig/"+newFile;
             try
             {
                 LineValues = System.IO.File.ReadAllLines(relativePath2);
